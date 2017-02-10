@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="CrimsonRGamesSiteApp" lang="en">
     <head>
         <title>Crimson R Games</title>
         <meta charset="UTF-8">
@@ -13,13 +13,13 @@
         <script src='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js' type='text/javascript'></script>
         <!-- End Cookie Consent plugin -->
     </head>
-    <body>
+    <body ng-cloak ng-controller="MainController">
         <div id='wrap'>
             <div class='navbar-fixed-top'>
                 <div class='inner-navbar'>
                     <div class="crimson-r-games-brand-logo"><img style="width: 100px;" src="img/RGamesMedal2.png" alt="Crimson R Games Logo"></div>
                     <!--<span class='crimson-r-games-brand'><a class='brand' href='http://www.crimsonrgames.com/'>Crimson R Games</a></span>-->
-                    <a href='#menu' id='toggle'><span> </span></a>
+                    <a href='' ng-click="toggleMenu()" id='toggle'><span id="middleSpan"> </span></a>
                     <div id='menu'>
                         <ul class='nav'>
                             <li>
@@ -41,11 +41,42 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <footer>
+            <div class="container" >
 
+                <div class="main-content">
+
+                    <div class="main-content-inner">
+                        <div class="main-header">
+                            <!--<img src="img/Razor-X.jpg" alt="Header Image">-->
+                            <div class="main-header-title">
+                                <h1>Razor-X Available Now!</h1>
+                            </div>
+                        </div>
+                        <div>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non semper tortor. Duis viverra ornare hendrerit. Nam imperdiet mauris purus, vitae ultrices turpis ultricies eget. Quisque quis placerat est. Etiam laoreet in magna eu placerat. Phasellus eu pretium tortor. In congue arcu nec augue interdum pulvinar. Donec eu ipsum eu tortor vulputate molestie a eu tellus. Sed vulputate faucibus tempor. Donec mollis cursus orci vitae blandit. Aliquam lectus ligula, venenatis quis molestie sed, dignissim a tortor.
+
+                            Curabitur rhoncus placerat euismod. Nam tincidunt ipsum vel ex lacinia eleifend. Ut ac nunc maximus, sollicitudin lectus id, aliquet magna. Nullam hendrerit posuere nibh, eu interdum magna molestie eu. Duis eleifend, libero et ullamcorper laoreet, ligula sem posuere eros, accumsan euismod neque leo eu libero. In aliquam, mi lacinia convallis congue, ex elit commodo arcu, ut venenatis justo tellus ut odio. Cras tempus suscipit dolor, ac iaculis sem dapibus sit amet.
+
+                            Curabitur molestie massa ut ornare sagittis. Nulla aliquet lacus sit amet dapibus commodo. Aliquam erat volutpat. Pellentesque sit amet velit vehicula leo malesuada varius. Morbi imperdiet turpis sit amet felis fringilla, eget hendrerit lorem sagittis. Maecenas molestie nibh metus, sed eleifend libero tincidunt sit amet. Nulla tincidunt leo ipsum, in condimentum urna cursus eu. Etiam a semper sem. Sed pharetra mattis lectus vitae consectetur. Nunc sit amet egestas velit, sed elementum ex. Nulla ut erat leo.
+
+                            Pellentesque tincidunt ante a nisl gravida, ut vestibulum tellus convallis. Etiam a justo velit. Donec cursus ultricies nibh a egestas. Suspendisse aliquam enim eu elit elementum condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut commodo lectus. Vivamus quis iaculis libero, a volutpat mi. Sed condimentum sem eu aliquet lacinia. Praesent iaculis mauris nec nunc volutpat suscipit. Suspendisse eget dictum metus, in dictum leo.
+
+                            Curabitur at iaculis nibh. Curabitur lacinia faucibus justo id fermentum. Proin ornare consequat maximus. Vestibulum vel magna ac lacus pellentesque ultricies ut sed erat. Ut convallis pharetra est a auctor. Nulla facilisi. Vivamus pellentesque at mauris in tincidunt. Morbi at lobortis est. Vestibulum mi turpis, eleifend vel leo ultricies, aliquam tincidunt nunc. Curabitur pretium lorem lorem, ut mattis ex convallis in. Integer a feugiat mi. Nulla fringilla metus id arcu pharetra, non mattis nunc volutpat. Sed id diam at sapien lobortis viverra ut a risus. Donec aliquam velit lorem, sit amet egestas nunc venenatis in. Proin sollicitudin rutrum est. Fusce rhoncus ultricies mauris non tristique.
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer class="footer"><br>
+            Crimson R Games <br>
+            2012 - 2017 &COPY; Aldo Pedro Rangel Montiel
         </footer>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
