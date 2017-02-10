@@ -35,7 +35,8 @@ h1{
     border: 1px solid #bb0a15;
     border-top-width: 0px;
     padding-top: 3px;
-    border-right-width: 0px;
+    border-right-width: 1px;
+    border-right-color: #e80211;
 }
 .navbar-fixed-top{
     position: fixed;
@@ -58,6 +59,13 @@ h1{
     border: 1px solid #bb0a15;
     z-index: 2;
 }
+.item{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.featured-apps-container{ 
+}
 .inner-navbar{
     top: 10px;
 }
@@ -69,7 +77,6 @@ h1{
     font-weight: 200;
     color: #f42d39;
     text-shadow: 0 1px 0 #f5404b
-
 }
 .crimson-r-games-brand a{
     text-decoration: none;
@@ -92,6 +99,7 @@ h1{
     bottom: 0; 
     position: absolute;
     width: 100%; 
+    padding: 2px;
 }
 .nav{
     list-style-type: none;
@@ -152,11 +160,19 @@ h1{
     opacity: 1;
     visibility: visible;
 }
+.featured-game-description{
+    margin: 8px;
+    color: black;
+    font-size: 1em;
+}
 .movie{
     position: relative;
     height: 0;
     overflow: hidden;
     padding-bottom: 56.25%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .movie iframe {
     position: absolute;
@@ -186,11 +202,27 @@ h1{
 }
 
 @media screen and (min-width: 600px) {
-
     .inner-navbar{
         top: 10px;
     }
+    .featured-apps-container{ 
+        display: inline-block;
+        width: 100%;
+    }
 
+    .featured-game-description{
+        margin: 16px;
+        color: black;
+        font-size: 1.4em;
+    }
+    .item{
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        max-width: 33%;
+        width: 33%;
+        float: left
+    }
     .invisible-big-screen{
         visibility: hidden;
         height: 0px;
@@ -268,7 +300,6 @@ li.L4, li.L9 { list-style-type: none }
 .main-content-inner{
     background-color: blue;
     background-color: #fbfbfb;
-    border: 1px solid #e3e3e3;
     border-radius: 0px;
 }
 .widgets-bar{
@@ -295,8 +326,6 @@ li.L4, li.L9 { list-style-type: none }
         margin-right: auto;
     }
     .main-content-inner{
-        padding: 4px;
-        margin: 2px 5px 5px 5px;
         background-color: #fbfbfb;
     }
     .widgets-bar{
@@ -317,8 +346,21 @@ li.L4, li.L9 { list-style-type: none }
     .widgets-bar-inner:hover {
         transform: skewY(180deg);
     }
-}
 
+    body {
+        height: 100%;
+        overflow-x: hidden;
+        margin: 0px;
+        height: 100%;
+        font-family: Fenix;
+        color: #ff8c3b;
+        background-color: #f5f198;
+        background-image: url(../img/CrimsonRGamesBG.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
 .footer{
     color: #f7f7f7;
     display: block;
@@ -338,14 +380,12 @@ li.L4, li.L9 { list-style-type: none }
 body {
     height: 100%;
     overflow-x: hidden;
-
     margin: 0px;
     height: 100%;
     font-family: Fenix;
     color: #ff8c3b;
     background-color: #f5f198;
 }
-
 html{
     overflow-x: hidden;
     overflow-y: hidden;
