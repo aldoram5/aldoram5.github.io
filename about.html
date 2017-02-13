@@ -1,16 +1,124 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html ng-app="CrimsonRGamesSiteApp" lang="en">
     <head>
-        <title>TODO supply a title</title>
+        <title>Crimson R Games</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content='iOS,Android,Game,App,Development,Desarrollo,OpenCV,Unity3d' name='keywords'/>
+        <meta content='Aldo Pedro Rangel Montiel' name='author'/>
+        <link rel="stylesheet" href="css/main.css">
+        <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+        <script type='text/javascript'>
+            window.cookieconsent_options = {"message": "This site uses cookies. By continuing to browse the site you are agreeing to our use of cookies.", "dismiss": "Ok, I get it", "learnMore": "", "link": null, "theme": "dark-bottom"};</script>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js' type='text/javascript'></script>
+        <!-- End Cookie Consent plugin -->
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body ng-cloak ng-controller="MainController">
+        <div id='wrap'>
+            <header ng-include="'parts/header.html'" >
+            </header>
+            <div class="container" >
+                <div class="main-content">
+                    <div class="main-content-inner">
+                        <br>
+                        <div class="centered " style="padding-top: 1px;">
+                            <h1>About Crimson R Games:</h1>
+                        </div>
+                        <div class="normal-not-so-big-text">
+                            <p>Crimson R Games was founded in 2012 by me(Aldo Pedro Rangel Montiel).
+                                It started just as a simple Blog(powered with Blogger) with some posts about programming, videogames and systems; 
+                                since then I've been adding more content, like tutorials about technologies
+                                I use or find interesting or to show case some of the projects that I've been involved in
+                                some way or that are completely mine.
+                                <br>
+                                More recently in 2017, I've started to use Crimson R Games 
+                                as the brand behind my games and apps and using this site as a 
+                                portfolio of some of my work, while also keeping it as my development blog.<br>
+                            </p>
+                        </div>
+                        <div>
+                            <br>
+                            <div class="centered">
+                                <h1>About me:</h1>
+                            </div>
+                            <div class="normal-not-so-big-text">
+                                <p>Hi! I'm Aldo Pedro Rangel Montiel, I'm a developer with a burning passion
+                                    for building, imaging, creating and developing Games and Applications.
+                                    I decided to become a developer at the age of 6 mostly inspired by the 
+                                    Super Nintendo Game "Super Mario World"; that game fascinated me by all the variety
+                                    of levels it had, the gameplay and the ability to explore a magical "World" through
+                                    a TV screen, thus making me want to be able to create a "Worlds" of my own. Then
+                                    my mother explained me that programmers where the ones that could create such worlds.
+                                    Since then I was eager to learn how to program, however I didn't had a computer
+                                    until I was 13, but it was a very old machine with Windows XP,
+                                    which could barely run Word, so I really couldn't use it.<br>
+                                    Then when I started the high school(2008) I finally acquired what I see
+                                    as my first own computer, a Compaq Pressario laptop and with it 
+                                    I learned how to program. The high school(IPN CECyT 9), 
+                                    at third semester made me choose a technical specialty of the 3 available:
+                                    Digital Systems, Machines with Automated Systems and Programming. I decided
+                                    to chose Programming and there I learned Object Oriented Programming with java
+                                    and then in later semesters I tried in many projects for the school
+                                    other technologies such as PHP, SOAP services, MySQL and Javascript.<br>
+                                    However I still hadn't had the chance to develop a game of my own, I experimented
+                                    a bit with Game Maker lite and also with the SDL library but I really didn't finish 
+                                    anything, until in 2012 when I participated in the BlackBerry Challenge, which 
+                                    rewarded you with a Blackberry Playbook if you could finish a game or app for 
+                                    the Blackberry Appworld. Then I dedicated to finally make my very own first Game, 
+                                    the game's name is The Chronicles of Magastria: The Training. I made everything in that game
+                                    the music, the sprites, etc. This one was really hard because I had to code a some sort of 
+                                    grafical engine using opengles 1.0 with C. Right now you won't be able to
+                                    find it because I withdrawed it from the Blackberry Appworld, because it crashed sometimes near the 10th level.
+                                    While I fixed the errors it had I decided not to upload it again mostly because 
+                                    I became aware of other more successful platforms: Android & iOS. Later that year I got my 
+                                    current part time job in a company named GBMobile.</p><p>
+                                    There I had the opportunity to hone my skills
+                                    and also learned a lot specially about mobile development. While working there, I was involved 
+                                    in the making of many apps(internal and also ones that got published in their respective stores)
+                                    and one game named Zombitlan, which helped me to learn a lot about Unity 3D, and thanks to the apps
+                                    I've been working on there I learned Android development(both with de SDK and NDK with Android Studio)
+                                    and iOS development(Xcode). Also during the development of an app named Keyron I came in cotact with 
+                                    Computer Vision and learned about a very good library named OpenCV, which I've been exploring since then.
+                                    While working on all of that in my laboral hours in my spare time I developed Colorful Tiles, which was my 
+                                    first Android game, however it hasn't been really successful, but it was my second personal project
+                                    that I was able to complete and thanks to it I learned a lot mor about Unity and the whole publishing process.
+                                    After that one I created an app, again only for the Android platform, mostly because back in that time 
+                                    I didn't had a MAC which is necessary for iOS development. That App was for a Co-Worker which was a student like
+                                    me, but her computer broke and because she needed to learn more about HTML5 and javascript for school and work,
+                                    I developed the Simple HTML Tester for her, and then I decided to upload it to Google Play as well, mostly because
+                                    it could help others as well, and it seems it has, because right now, it is my most successful app.
+                                    Thanks to all that experience I have been able to keep up Crimson R Games, now as the brand behind the apps
+                                    I've developed and the ones that are yet to come.
+                                </p>
+                            </div>
+                            <div class="centered">
+                                <h1>Contact me:</h1>
+                            </div>
+                            <div class="normal-not-so-big-text">
+                                <p>
+                                    You can reach me at <a href="mailto:support@crimsonrgames.com">support@crimsonrgames.com</a>
+                                    wheter you have a question or if you want to leave me a comment.<br>
+                                    My github page(where you can see what I'm up to now): <a href="https://github.com/aldoram5" >aldoram5's github profile</a><br>
+                                    My StackOverflow profile:
+                                </p>
+                                <div class="centered">
+                                    <a href="http://stackoverflow.com/users/4142609/aldoram5">
+                                        <img src="http://stackoverflow.com/users/flair/4142609.png" width="208" height="58" alt="profile for aldoram5 at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for aldoram5 at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer" ng-include="'parts/footer.html'" >
+        </footer>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
