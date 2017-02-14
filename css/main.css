@@ -12,6 +12,13 @@ a {
 h1{
     font-size: 1.1em;
 }
+.item-border{
+    border-color: #000000;
+    border-width: 1px;
+    border-radius: 8px;
+    border-style: solid;
+}
+.padding-on-mobile{ padding-left: 73px;}
 .centered{
     text-align: center;
 }
@@ -211,6 +218,7 @@ h1{
     .inner-navbar{
         top: 10px;
     }
+    .padding-on-mobile{}
     .featured-apps-container{ 
         display: inline-block;
         width: 100%;
@@ -339,6 +347,7 @@ h1{
     .container{
         margin-top: 70px;
     }
+    .padding-on-mobile{}
     .main-content{
         display: block;
         width: 70%;
@@ -349,6 +358,7 @@ h1{
     .main-content-inner{
         background-color: #fbfbfb;
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        padding: 8px;
     }
     .logo{
         width: 150px;
