@@ -1,0 +1,60 @@
+/*
+Style for the conversation editor for Monika After Story Mod of Doki Doki
+Literature Club
+This editor is licensed under MIT License https://opensource.org/licenses/MIT
+Copyright 2018 Aldo Pedro Rangel Montiel (aldoram5)
+*/
+.md-button.md-raised.green-button{
+    color: #ffffff !important;
+    background-color: #33cc00 !important;
+}
+.container{
+    background-color: white;
+    height: 90%;
+    min-height: 650px;
+    width: 70%;
+    min-width: 675px;
+    overflow: hidden;
+    font-size: 0.6em;
+}
+.inner-center{
+    margin: auto;
+}
+.start-node {
+    position: absolute;
+    height:100px; width: 100px;
+    border: 1px solid black;
+    color: black;
+    display: flex;
+    text-align: center;
+    background-color: azure;
+    vertical-align: middle;
+}
+.option-node {
+    position: absolute;
+    height:100px; width: 100px;
+    border-radius: 50px;
+    border: 1px solid blue;
+    color: white;
+    background-color: blue;
+    display: flex;
+    
+}
+.statement-node {
+    position: absolute;
+    height:100px; width: 130px;
+    border: 1px solid green;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+}
+.question-node{
+    position: absolute;
+    height:100px; width: 150px;
+    border: 2px solid orange;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    background-color: orange;
+    display: flex;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="MonikaChatEditorApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/editor.js"></script>
+        <style>
+            #diagramContainer {
+                padding: 20px;
+                width:80%; height: 150px;
+                border: 1px solid gray;
+            }
+
+            .item {
+                position: absolute;
+                height:80px; width: 80px;
+                border: 1px solid blue;
+                float: left;
+            }	
+        </style>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body ng-cloak>
+        <div ng-controller="EditorCtrl as ec" >
+            <div id="diagramContainer" class="container">
+                <div id="start_node"  class="start-node">
+                    <div class="inner-center">
+                        Conversation started                                    
+                    </div>
+                </div>
+                <div id="questionYN">
+                    <div id="question1" class="question-node">
+                        <div class="inner-center">
+                            Question YN                                    
+                        </div>
+                    </div>
+                    <div id="option1_1" class="option-node">
+                        <div class="inner-center">
+                            Yes Option                                    
+                        </div>
+                    </div>
+                    <div id="option1_2" class="option-node">
+                        <div class="inner-center">
+                            No Option                                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <p>Hover over the endpoint or the connector to see the hover-style!</p>
+
+            <p><a href="http://www.freedevelopertutorials.com/jsplumb-tutorial/introduction/">Visit the full jsPlumb-Tutorial</a> to learn it and see many more interesting examples.</p>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.5.8/js/jsplumb.min.js"></script>
+        <script>
+            /*jsPlumb.ready(function () {
+             jsPlumb.setContainer("diagramContainer");
+             
+             var common = {
+             isSource: true,
+             isTarget: true,
+             connector: "Straight",
+             endpoint: "Rectangle",
+             paintStyle: {fill: "white", outlineStroke: "blue", strokeWidth: 3},
+             hoverPaintStyle: {outlineStroke: "lightblue"},
+             connectorStyle: {outlineStroke: "green", strokeWidth: 1},
+             connectorHoverStyle: {strokeWidth: 2}
+             };
+             jsPlumb.draggable("item_left");
+             jsPlumb.draggable("item_right");
+             jsPlumb.addEndpoint("item_left", {
+             anchor: "Right"
+             }, common);
+             
+             jsPlumb.addEndpoint("item_right", {
+             anchor: "Left"
+             }, common);
+             
+             jsPlumb.addEndpoint("item_right", {
+             anchor: "Top"
+             }, common);
+             });*/
+        </script> 
+
+    </body>
+</html>

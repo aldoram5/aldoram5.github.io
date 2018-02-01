@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+Conversation editor for Monika After Story Mod of Doki Doki Literature Club
+This editor is licensed under MIT License https://opensource.org/licenses/MIT
+Copyright 2018 Aldo Pedro Rangel Montiel (aldoram5)
+-->
+<html ng-app="MonikaChatEditorApp">
+    <head>
+        <title>MAS Chat flow creator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jsplumb.min.js" ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/editor.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    </head>
+    <body ng-cloak> 
+        <div ng-controller="EditorCtrl as ec" layout="column" >
+            <section layout="row" flex>
+
+                <md-sidenav
+                    class="md-sidenav-left"
+                    md-component-id="left"
+                    md-is-locked-open="$mdMedia('gt-md')"
+                    md-whiteframe="4" >
+
+                    <md-toolbar class="md-theme-indigo">
+                        <h1 class="md-toolbar-tools">Conversation nodes</h1>
+                    </md-toolbar>
+                    <md-content layout-padding >
+                        <md-list>
+                            <md-subheader class="md-no-sticky">Nodes</md-subheader>
+                            <md-list-item class="secondary-button-padding">
+                                <p>Statement</p>
+                                <md-button class="md-secondary md-raised green-button" 
+                                           ng-click="doSecondaryAction($event)">Add node</md-button>
+                            </md-list-item>
+                            <md-list-item class="secondary-button-padding">
+                                <p>Yes/No question</p>
+                                <md-button class="md-secondary md-raised green-button"
+                                           ng-click="addStatement()">Add node</md-button>
+                            </md-list-item>
+                            <md-list-item class="secondary-button-padding">
+                                <p>Ask to input a date</p>
+                                <md-button class="md-secondary md-raised green-button" 
+                                           ng-click="doSecondaryAction($event)">Add node</md-button>
+                            </md-list-item>
+                            <md-list-item class="secondary-button-padding">
+                                <p>Choice 3 options</p>
+                                <md-button class="md-secondary md-raised green-button" 
+                                           ng-click="doSecondaryAction($event)">Add node</md-button>
+                            </md-list-item>
+                            <md-list-item class="secondary-button-padding">
+                                <p>Choice 4 options</p>
+                                <md-button class="md-secondary md-raised green-button" 
+                                           ng-click="doSecondaryAction($event)">Add node</md-button>
+                            </md-list-item>
+                            <md-list-item class="secondary-button-padding">
+                                <p>Choice 5 options</p>
+                                <md-button class="md-secondary md-raised green-button" 
+                                           ng-click="doSecondaryAction($event)">Add node</md-button>
+                            </md-list-item>
+                        </md-list>
+                        <div flex></div>
+                    </md-content>
+
+                </md-sidenav>
+
+                <md-content flex layout-padding>
+
+                    <div layout="column" layout-align="top center">
+
+                        <div id="diagramContainer" class="container">
+                            <div id="start_node"  class="start-node">
+                                <div class="inner-center">
+                                    Conversation started                                    
+                                </div>
+                            </div>
+                            <div id="question1" class="question-node">
+                                <div class="inner-center">
+                                    Conversation started                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div flex></div>
+
+                </md-content>
+
+                <md-sidenav class="md-sidenav-right md-whiteframe-4dp" 
+                            md-component-id="right"
+                            md-is-locked-open="$mdMedia('gt-md')">
+
+                    <md-toolbar class="md-theme-light">
+                        <h1 class="md-toolbar-tools">Sidenav Right</h1>
+                    </md-toolbar>
+                    <md-content  layout-padding>
+                        <form>
+                            <md-input-container>
+                                <label for="testInput">Test input</label>
+                                <input type="text" id="testInput"
+                                       ng-model="data" md-autofocus>
+                            </md-input-container>
+                        </form>
+                        <md-button ng-click="close()" class="md-primary md-raised md-warn">
+                            Delete node
+                        </md-button>
+                    </md-content>
+
+                </md-sidenav>
+
+            </section>
+
+        </div>
+    </body>
+</html>
