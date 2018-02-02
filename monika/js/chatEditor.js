@@ -58,7 +58,7 @@ function editorCtrl($scope, $mdDialog) {
     };
 
     $scope.createAction = function () {
-        return {type: "", key: "", value: ""};
+        return {type: "store", key: "", value: ""};
     };
 
     $scope.addFinalActionToNode = function (event, node) {
