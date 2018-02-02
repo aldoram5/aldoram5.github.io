@@ -31,13 +31,17 @@ and open the template in the editor.
                             Add step
                         </md-button>
 
-                        <md-button class="md-raised" aria-label="Export">
+                        <md-button class="md-raised" ng-click="exportJSON($event)" aria-label="Export">
                             Export
                         </md-button>
                     </div>
                 </md-toolbar>
                 <md-content layout-padding>
                     <div layout="row" layout-margin>
+                        <md-input-container>
+                            <label>Conversation Name:</label>
+                            <input ng-model="coversationName">
+                        </md-input-container>
                         <md-input-container>
                             <label>Subject/Question:</label>
                             <input ng-model="conversation.subject">
