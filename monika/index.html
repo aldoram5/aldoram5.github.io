@@ -74,7 +74,7 @@ and open the template in the editor.
                     <div>
                         <a href="https://github.com/Backdash/MonikaModDev/blob/master/docs/MonikaCheatsheet.jpg" > Monika Expression Cheat Sheet</a> useful to fill the "Reaction" field in each step.<br><br>
                         If a "Step" is final ("No more dialog after it") be sure to set the "Next Step" to none or leave it in blank.<br/>
-                        The recommended workflow is to create all the needed steps first and then start filling them as required, once you're done press the export button.
+                        The recommended workflow is to create all the needed steps first and then start filling them as required, once you're done press the export button. "multi" steps don't have a "Next Step" be careful with that
                     </div>
                     <md-list>
                         <md-header class="md-no-sticky">Steps:</md-header>
@@ -117,13 +117,13 @@ and open the template in the editor.
                                         <label>Reaction:</label>
                                         <input size="7" ng-model="node.reaction">
                                     </md-input-container>
-                                    <md-input-container>
+                                    <md-input-container ng-hide="node.inputType == 'multi'">
                                         <label>Next Step</label>
                                         <md-select ng-model="node.nextNode">
                                             <md-option ng-value="null" >
                                                 None
                                             </md-option>
-                                            <md-option ng-repeat="node in conversation.nodes" ng-value="node.id" >
+                                            <md-option  ng-repeat="node in conversation.nodes" ng-value="node.id" >
                                                 {{node.id}}
                                             </md-option>
                                         </md-select>
@@ -133,14 +133,6 @@ and open the template in the editor.
                             <md-list-item ng-hide="node.initialAction == null">
                                 <div layout="row" layout-margin >
                                     Initial Action: 
-                                    <md-input-container>
-                                        <label>Action Type:</label>
-                                        <md-select ng-model="node.initialAction.type">
-                                            <md-option ng-repeat="actionType in actionTypes" ng-value="actionType" >
-                                                {{actionType}}
-                                            </md-option>
-                                        </md-select>
-                                    </md-input-container>
                                     <md-input-container >
                                         <label>Key:</label>
                                         <input ng-model="node.initialAction.key">
@@ -148,6 +140,14 @@ and open the template in the editor.
                                     <md-input-container>
                                         <label>Value:</label>
                                         <input ng-model="node.initialAction.value">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Action Type:</label>
+                                        <md-select ng-model="node.initialAction.type">
+                                            <md-option ng-repeat="actionType in actionTypes" ng-value="actionType" >
+                                                {{actionType}}
+                                            </md-option>
+                                        </md-select>
                                     </md-input-container>
                                     <md-button class="md-raised md-warn" ng-click="removeInitialActionToNode($event, node)" aria-label="Remove Final Action">
                                         Remove Action
@@ -183,7 +183,7 @@ and open the template in the editor.
                                     Menu Option {{($index + 1)}}:
                                     <md-input-container >
                                         <label>Menu Option Text:</label>
-                                        <input size="100" ng-model="node.finalAction.key">
+                                        <input size="100" ng-model="option.text">
                                     </md-input-container>
                                     <md-input-container>
                                         <label>Next Step:</label>
@@ -193,7 +193,7 @@ and open the template in the editor.
                                             </md-option>
                                         </md-select>
                                     </md-input-container>
-                                    <md-button class="md-raised md-warn" ng-click="removeFinalActionToNode($event, node, $index)" aria-label="Remove Final Action">
+                                    <md-button class="md-raised md-warn" ng-click="removeOptionToNode($event, node, $index)" aria-label="Remove Final Action">
                                         Remove Option
                                     </md-button>
                                 </div>

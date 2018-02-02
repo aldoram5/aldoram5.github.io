@@ -84,7 +84,7 @@ function editorCtrl($scope, $mdDialog) {
         node.options.push({"text": "", "nextNode": null});
     };
 
-    $scope.removeFinalActionToNode = function (event, node, index) {
+    $scope.removeOptionToNode = function (event, node, index) {
         node.options.splice(index, 1);
     };
 
