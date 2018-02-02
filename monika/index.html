@@ -27,7 +27,7 @@ and open the template in the editor.
                         <h2 flex md-truncate>Monika After Story - Conversations Editor</h2>
 
 
-                        <md-button class="md-raised" aria-label="Add Step">
+                        <md-button class="md-raised" ng-click="addNode($event)" aria-label="Add Step">
                             Add step
                         </md-button>
 
@@ -36,7 +36,168 @@ and open the template in the editor.
                         </md-button>
                     </div>
                 </md-toolbar>
+                <md-content layout-padding>
+                    <div layout="row" layout-margin>
+                        <md-input-container>
+                            <label>Subject/Question:</label>
+                            <input ng-model="conversation.subject">
+                        </md-input-container>
 
+                        <md-input-container>
+                            <label>Verb:</label>
+                            <input ng-model="conversation.verb">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Adjective:</label>
+                            <input ng-model="conversation.adjective">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Refers to:</label>
+                            <input ng-model="conversation.referingNoun">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Initial Step</label>
+                            <md-select ng-model="conversation.nextNode">
+                                <md-option ng-repeat="node in conversation.nodes" ng-value="node.id" >
+                                    {{node.id}}
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div>
+                        <a href="https://github.com/Backdash/MonikaModDev/blob/master/docs/MonikaCheatsheet.jpg" > Monika Expression Cheat Sheet</a> useful to fill the "Reaction" field in each step.<br><br>
+                        If a "Step" is final ("No more dialog after it") be sure to set the "Next Step" to none or leave it in blank.<br/>
+                        The recommended workflow is to create all the needed steps first and then start filling them as required, once you're done press the export button.
+                    </div>
+                    <md-list>
+                        <md-header class="md-no-sticky">Steps:</md-header>
+                        <div ng-repeat="node in conversation.nodes" >
+                            <!--<md-list-item ng-repeat="node in conversation.nodes">-->
+                            <div layout="row"  layout-margin>
+                                <md-list-item >
+                                    <div layout="row"  layout-margin>
+                                        Step id: <b>{{node.id}}</b>  
+                                        <md-button class="md-raised"ng-hide="node.initialAction != null" ng-click="addInitialActionToNode($event, node)" aria-label="Add Initial Action">
+                                            Add Initial Action
+                                        </md-button> 
+                                        <md-button class="md-raised" ng-hide="node.finalAction != null" ng-click="addFinalActionToNode($event, node)" aria-label="Add Final Action">
+                                            Add Final Action
+                                        </md-button>
+                                        <md-input-container>
+                                            <label>Player Input Type:</label>
+                                            <md-select ng-model="node.inputType">
+                                                <md-option ng-value="null" >
+                                                    No Player Input
+                                                </md-option>
+                                                <md-option ng-repeat="nodeType in nodeInputTypes" ng-value="nodeType" >
+                                                    {{nodeType}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                        <md-button class="md-raised" ng-hide="node.inputType != 'multi'" ng-click="addMenuOptionToNode($event, node)" aria-label="Add Final Action">
+                                            Add Menu Item
+                                        </md-button>
+                                    </div>
+                                </md-list-item>
+                            </div>
+                            <md-list-item  >
+                                <div layout="row" layout-margin>
+                                    <md-input-container flex="60">
+                                        <label>Text Monika will say:</label>
+                                        <input size="500" ng-model="node.display_text">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Reaction:</label>
+                                        <input size="7" ng-model="node.reaction">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Next Step</label>
+                                        <md-select ng-model="node.nextNode">
+                                            <md-option ng-value="null" >
+                                                None
+                                            </md-option>
+                                            <md-option ng-repeat="node in conversation.nodes" ng-value="node.id" >
+                                                {{node.id}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                </div>
+                            </md-list-item>
+                            <md-list-item ng-hide="node.initialAction == null">
+                                <div layout="row" layout-margin >
+                                    Initial Action: 
+                                    <md-input-container>
+                                        <label>Action Type:</label>
+                                        <md-select ng-model="node.initialAction.type">
+                                            <md-option ng-repeat="actionType in actionTypes" ng-value="actionType" >
+                                                {{actionType}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-input-container >
+                                        <label>Key:</label>
+                                        <input ng-model="node.initialAction.key">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Value:</label>
+                                        <input ng-model="node.initialAction.value">
+                                    </md-input-container>
+                                    <md-button class="md-raised md-warn" ng-click="removeInitialActionToNode($event, node)" aria-label="Remove Final Action">
+                                        Remove Action
+                                    </md-button>
+                                </div>
+                            </md-list-item>
+                            <md-list-item ng-hide="node.finalAction == null">
+                                <div layout="row" layout-margin >
+                                    Final Action: 
+                                    <md-input-container >
+                                        <label>Key:</label>
+                                        <input ng-model="node.finalAction.key">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Value:</label>
+                                        <input ng-model="node.finalAction.value">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Action Type:</label>
+                                        <md-select ng-model="node.finalAction.type">
+                                            <md-option ng-repeat="actionType in actionTypes" ng-value="actionType" >
+                                                {{actionType}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-button class="md-raised md-warn" ng-click="removeFinalActionToNode($event, node)" aria-label="Remove Final Action">
+                                        Remove Action
+                                    </md-button>
+                                </div>
+                            </md-list-item>
+                            <md-list-item ng-repeat="option in node.options" ng-hide="node.inputType != 'multi'">
+                                <div layout="row" layout-margin>
+                                    Menu Option {{($index + 1)}}:
+                                    <md-input-container >
+                                        <label>Menu Option Text:</label>
+                                        <input size="100" ng-model="node.finalAction.key">
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Next Step:</label>
+                                        <md-select ng-model="option.nextNode">
+                                            <md-option ng-repeat="node in conversation.nodes" ng-value="node.id" >
+                                                {{node.id}}
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+                                    <md-button class="md-raised md-warn" ng-click="removeFinalActionToNode($event, node, $index)" aria-label="Remove Final Action">
+                                        Remove Option
+                                    </md-button>
+                                </div>
+                            </md-list-item>
+                            <md-divider></md-divider>
+                        </div>
+                    </md-list>
+                </md-content>
             </md-content>
         </div>
     </body>
