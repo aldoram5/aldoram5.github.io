@@ -33,7 +33,7 @@ and open the template in the editor.
                         <md-button class="md-raised" ng-click="exportJSON($event)" aria-label="Export">
                             Export
                         </md-button>
-                        Import:
+                        Import:&nbsp;
                         <input type="file" ng-model="importedData" 
                                mas-file-select="json" 
                                file-loaded="importFromFile()">
@@ -74,10 +74,23 @@ and open the template in the editor.
                             </md-select>
                         </md-input-container>
                     </div>
-                    <div>
-                        <a href="https://github.com/Backdash/MonikaModDev/blob/master/docs/MonikaCheatsheet.jpg" > Monika Expression Cheat Sheet</a> useful to fill the "Reaction" field in each step.<br><br>
-                        If a "Step" is final ("No more dialog after it") be sure to set the "Next Step" to none or leave it in blank.<br/>
-                        The recommended workflow is to create all the needed steps first and then start filling them as required, once you're done press the export button. "multi" steps don't have a "Next Step" be careful with that
+
+                    <md-button class="md-raised" ng-click="showHelp = !showHelp" aria-label="Export">
+                        Show/Hide help
+                    </md-button>
+                    <div ng-show="showHelp">
+                        <h2>Help:</h2>
+                        <ul>
+                            <li><a href="https://github.com/Backdash/MonikaModDev/blob/master/docs/MonikaCheatsheet.jpg" >Monika Expression Cheat Sheet</a> useful to fill the <b>"Reaction"</b> field in each step.</li>
+                            <li>If a <b>"Step"</b> is final (no more dialog after it) be sure to set the <b>"Next Step"</b> to none or leave it in blank.</li>
+                            <li>The recommended workflow is to create all the needed steps first and then start filling them as required, once you're done press the export button.</li>
+                            <li><b>"multi"</b> steps don't have a <b>"Next Step"</b> be careful with that.</li>
+                            <li>It's recommended that you make sure the <b>"Next Step"</b> fields are correct, otherwise you may end up with undesired behaviour.</li>
+                            <li>If you need to change anything select the exported .json file in the import function in the toolbar.
+                            </li>
+                            <li>When importing, the conversation name is <b>not</b> imported, be careful with that.
+                            </li>
+                        </ul>
                     </div>
                     <md-list>
                         <md-header class="md-no-sticky">Steps:</md-header>

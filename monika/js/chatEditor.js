@@ -25,6 +25,7 @@ function editorCtrl($scope, $mdDialog) {
     $scope.actionTypes = ["read", "store"];
     $scope.nodeInputTypes = ["multi", "text"];
     $scope.url = null;
+    $scope.showHelp = false
     
     $scope.importFromFile = function(){
         $scope.conversation = JSON.parse($scope.importedData);
