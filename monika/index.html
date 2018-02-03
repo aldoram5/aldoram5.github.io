@@ -26,7 +26,6 @@ and open the template in the editor.
                     <div class="md-toolbar-tools">
                         <h2 flex md-truncate>Monika After Story - Conversations Editor</h2>
 
-
                         <md-button class="md-raised" ng-click="addNode($event)" aria-label="Add Step">
                             Add step
                         </md-button>
@@ -34,6 +33,10 @@ and open the template in the editor.
                         <md-button class="md-raised" ng-click="exportJSON($event)" aria-label="Export">
                             Export
                         </md-button>
+                        Import:
+                        <input type="file" ng-model="importedData" 
+                               mas-file-select="json" 
+                               file-loaded="importFromFile()">
                     </div>
                 </md-toolbar>
                 <md-content layout-padding>
@@ -59,7 +62,7 @@ and open the template in the editor.
 
                         <md-input-container>
                             <label>Refers to:</label>
-                            <input ng-model="conversation.referingNoun">
+                            <input ng-model="conversation.referringNoun">
                         </md-input-container>
 
                         <md-input-container>
@@ -150,7 +153,7 @@ and open the template in the editor.
                                         </md-select>
                                     </md-input-container>
                                     <md-button class="md-raised md-warn" ng-click="removeInitialActionToNode($event, node)" aria-label="Remove Final Action">
-                                        Remove Action
+                                        Remove
                                     </md-button>
                                 </div>
                             </md-list-item>
@@ -174,7 +177,7 @@ and open the template in the editor.
                                         </md-select>
                                     </md-input-container>
                                     <md-button class="md-raised md-warn" ng-click="removeFinalActionToNode($event, node)" aria-label="Remove Final Action">
-                                        Remove Action
+                                        Remove
                                     </md-button>
                                 </div>
                             </md-list-item>
@@ -194,7 +197,7 @@ and open the template in the editor.
                                         </md-select>
                                     </md-input-container>
                                     <md-button class="md-raised md-warn" ng-click="removeOptionToNode($event, node, $index)" aria-label="Remove Final Action">
-                                        Remove Option
+                                        Remove
                                     </md-button>
                                 </div>
                             </md-list-item>

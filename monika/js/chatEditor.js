@@ -15,16 +15,22 @@ function editorCtrl($scope, $mdDialog) {
         verb: "",
         adjective: "",
         subject: "",
-        referingNoun: "",
+        referringNoun: "",
         nextNode: "",
         nodes: []
     };
+    $scope.importedData = null;
     $scope.coversationName = "chat";
     $scope.currentId = 0;
-    $scope.actionTypes = ["check", "store"];
+    $scope.actionTypes = ["read", "store"];
     $scope.nodeInputTypes = ["multi", "text"];
     $scope.url = null;
-
+    
+    $scope.importFromFile = function(){
+        $scope.conversation = JSON.parse($scope.importedData);
+        $scope.$apply();
+    };
+    
     $scope.addNode = function (event) {
         $scope.currentId++;
         var node = {
@@ -34,7 +40,7 @@ function editorCtrl($scope, $mdDialog) {
             inputType: null,
             nextNode: "",
             reaction: "1a",
-            display_text: "",
+            displayText: "",
             options: []
 
         };
