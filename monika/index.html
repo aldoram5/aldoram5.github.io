@@ -88,6 +88,11 @@ and open the template in the editor.
                             <li>It's recommended that you make sure the <b>"Next Step"</b> fields are correct, otherwise you may end up with undesired behaviour.</li>
                             <li>If you need to change anything select the exported .json file in the import function in the toolbar.
                             </li>
+                            <li>If you want to use the player name write: $PLAYER, soon there'll be more placeholders like that one.
+                            </li>
+                            <li>If you only care to check an adjective or just the subject or verb or refering thing leave the others empty. for example, in an opinion of monika chat you usually use 
+                                the adjective field and leave the others empty, since these are probably the same for that dialogue option.
+                            </li>
                             <li>When importing, the conversation name is <b>not</b> imported, be careful with that.
                             </li>
                         </ul>
@@ -127,7 +132,7 @@ and open the template in the editor.
                                 <div layout="row" layout-margin>
                                     <md-input-container flex="60">
                                         <label>Text Monika will say:</label>
-                                        <input size="500" ng-model="node.display_text">
+                                        <input size="500" ng-model="node.displayText">
                                     </md-input-container>
                                     <md-input-container>
                                         <label>Reaction:</label>
