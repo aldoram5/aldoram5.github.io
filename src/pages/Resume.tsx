@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import { Mail, MapPin, Phone, Globe, Download } from 'lucide-react';
+import { Mail, MapPin, Globe } from 'lucide-react';
 
 const Resume: React.FC = () => {
   return (

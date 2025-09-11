@@ -4,6 +4,7 @@ import { Buffer } from 'buffer';
 
 // Polyfill Buffer for gray-matter
 if (typeof window !== 'undefined') {
+  // @ts-ignore
   window.Buffer = Buffer;
 }
 
