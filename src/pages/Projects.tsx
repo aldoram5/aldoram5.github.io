@@ -132,7 +132,7 @@ const Projects: React.FC = () => {
             className="inline-flex items-center space-x-2 text-crimson-600 dark:text-crimson-400 hover:text-crimson-700 dark:hover:text-crimson-300 transition-colors"
           >
             <ExternalLink className="h-4 w-4" />
-            <span>Live Demo</span>
+            <span>Check it out!</span>
           </a>
         )}
         
