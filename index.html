@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Aldo's Blog - Thoughts, Projects, and Insights</title>
+    <meta name="description" content="Personal blog sharing thoughts on web development, game development, and technology insights. Built with React, Vite, and modern web technologies." />
+    <meta name="keywords" content="web development, react, javascript, typescript, game development, programming blog" />
+    <meta name="author" content="Aldo Pedro Rangel Montiel" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Aldo's Blog - Thoughts, Projects, and Insights" />
+    <meta property="og:description" content="Personal blog sharing thoughts on web development, game development, and technology insights." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aldoram5.github.io" />
+    <meta property="og:site_name" content="Aldo's Blog" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aldo's Blog - Thoughts, Projects, and Insights" />
+    <meta name="twitter:description" content="Personal blog sharing thoughts on web development, game development, and technology insights." />
+    <meta name="twitter:creator" content="@aldoram5" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://aldoram5.github.io" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#dc2626" />
+    <meta name="msapplication-TileColor" content="#dc2626" />
+    
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <script>
+      // Prevent flash of wrong theme
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const theme = savedTheme || systemTheme;
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
