@@ -5,7 +5,7 @@ import { Github, Globe, Mail, Heart } from 'lucide-react';
 const About: React.FC = () => {
   return (
     <Layout>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
@@ -17,9 +17,9 @@ const About: React.FC = () => {
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Story */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-3 space-y-8">
             <section className="card p-8">
               <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                 My Story
