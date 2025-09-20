@@ -117,6 +117,55 @@ const PostDetail: React.FC = () => {
         <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-gray-900 dark:prose-headings:text-gray-100 prose-a:text-crimson-600 dark:prose-a:text-crimson-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-900 dark:prose-strong:text-gray-100 prose-code:text-crimson-600 dark:prose-code:text-crimson-400 prose-pre:bg-gray-100 dark:prose-pre:bg-gray-800">
           <ReactMarkdown
             components={{
+              // Enhanced heading rendering
+              h1: ({ children }) => (
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mt-8 mb-4 first:mt-0">
+                  {children}
+                </h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mt-6 mb-3">
+                  {children}
+                </h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mt-5 mb-2">
+                  {children}
+                </h3>
+              ),
+              h4: ({ children }) => (
+                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 mt-4 mb-2">
+                  {children}
+                </h4>
+              ),
+              h5: ({ children }) => (
+                <h5 className="text-base font-bold text-gray-900 dark:text-gray-100 mt-3 mb-2">
+                  {children}
+                </h5>
+              ),
+              h6: ({ children }) => (
+                <h6 className="text-sm font-bold text-gray-900 dark:text-gray-100 mt-3 mb-2">
+                  {children}
+                </h6>
+              ),
+
+              // Enhanced list rendering
+              ul: ({ children }) => (
+                <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700 dark:text-gray-300 ml-4">
+                  {children}
+                </ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="list-decimal list-inside space-y-2 mb-4 text-gray-700 dark:text-gray-300 ml-4">
+                  {children}
+                </ol>
+              ),
+              li: ({ children }) => (
+                <li className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {children}
+                </li>
+              ),
+
               // Enhanced link rendering
               a: ({ href, children }) => {
                 const isExternal = href?.startsWith('http');

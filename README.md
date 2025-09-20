@@ -2,7 +2,7 @@
 
 A modern, responsive personal blog built with React, Vite, and Tailwind CSS. Features a clean design with warm colors inspired by Crimson R Games, dark/light mode toggle, tag-based filtering, and automatic GitHub Pages deployment.
 
-## ✨ Features
+## Features
 
 - **Modern Tech Stack**: React 19, TypeScript, Vite, Tailwind CSS
 - **Responsive Design**: Mobile-first approach with clean, professional layout
@@ -14,7 +14,7 @@ A modern, responsive personal blog built with React, Vite, and Tailwind CSS. Fea
 - **GitHub Pages**: Automatic deployment via GitHub Actions
 - **Fast Performance**: Optimized builds with code splitting
 
-## 🎨 Design
+## Design
 
 The blog features a warm color palette inspired by Crimson R Games:
 - **Primary**: Crimson red (#dc2626)
@@ -56,7 +56,7 @@ npm run build
 
 The built files will be in the `dist` directory.
 
-## 📝 Writing Blog Posts
+## Writing Blog Posts
 
 ### Creating a New Post
 
@@ -110,7 +110,7 @@ Write your post content here using markdown...
 - Responsive images
 - Custom blockquotes
 
-## 🔧 Configuration
+## Configuration
 
 ### Customizing Colors
 

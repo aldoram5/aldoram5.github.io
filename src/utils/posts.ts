@@ -11,7 +11,8 @@ if (typeof window !== 'undefined') {
 // List of available markdown posts - update this when adding new posts
 const availablePosts = [
   '2025-08-18-welcome-to-my-blog.md',
-  '2025-09-10-building-modern-blog-react-vite.md'
+  '2025-09-10-building-modern-blog-react-vite.md',
+  '2025-09-18-a-bit-of-history.md',
 ];
 
 async function loadMarkdownPosts(): Promise<BlogPost[]> {
