@@ -73,6 +73,18 @@ const PostDetail: React.FC = () => {
             {post.title}
           </h1>
           
+          {/* Featured Image */}
+          {post.image && (
+            <div className="relative w-full aspect-video overflow-hidden rounded-lg shadow-lg mb-6 bg-gray-100 dark:bg-gray-800">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+          )}
+          
           {/* Meta Information */}
           <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 dark:text-gray-400 mb-6">
             <div className="flex items-center space-x-2">

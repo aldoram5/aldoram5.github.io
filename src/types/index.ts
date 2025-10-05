@@ -6,6 +6,7 @@ export interface BlogPost {
   description: string;
   content: string;
   excerpt?: string;
+  image?: string;
 }
 
 export interface PostMetadata {
@@ -14,6 +15,7 @@ export interface PostMetadata {
   slug: string;
   tags: string[];
   description: string;
+  image?: string;
 }
 
 export interface ThemeContextType {

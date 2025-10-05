@@ -13,6 +13,7 @@ const availablePosts = [
   '2025-08-18-welcome-to-my-blog.md',
   '2025-09-10-building-modern-blog-react-vite.md',
   '2025-09-18-a-bit-of-history.md',
+  '2025-10-05-adding-featured-images-blog-enhancement.md',
 ];
 
 async function loadMarkdownPosts(): Promise<BlogPost[]> {
@@ -32,7 +33,8 @@ async function loadMarkdownPosts(): Promise<BlogPost[]> {
           tags: data.tags || [],
           description: data.description || '',
           content: content,
-          excerpt: data.description || getExcerpt(content)
+          excerpt: data.description || getExcerpt(content),
+          image: data.image
         };
         
         posts.push(post);
