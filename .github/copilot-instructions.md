@@ -12,6 +12,82 @@ This is a modern, responsive personal blog built with React 19, TypeScript, Vite
 - Gray Matter for markdown frontmatter parsing
 - React Markdown for content rendering
 
+## Quick Start: Build, Lint, and Test
+
+### Prerequisites
+- Node.js 18 or higher
+- npm (comes with Node.js)
+
+### Setup
+```bash
+npm install  # Install all dependencies
+```
+
+### How to Build
+```bash
+npm run build    # Production build (runs TypeScript check + Vite build)
+```
+- TypeScript compilation runs first (`tsc -b`)
+- Vite builds the production bundle
+- Output directory: `dist/`
+- Expected warnings: gray-matter eval warning (safe, library-specific), large chunk size (acceptable for this project)
+
+### How to Lint
+```bash
+npm run lint     # Run ESLint on all source files
+```
+- ESLint configuration: `eslint.config.js`
+- Known acceptable linting warnings:
+  - `react-refresh/only-export-components` in `ThemeContext.tsx` (exports both context and hook by design)
+  - Some `@ts-ignore` comments exist for library compatibility (buffer polyfill)
+
+### How to Run Development Server
+```bash
+npm run dev      # Start dev server at localhost:5173
+npm run preview  # Preview production build locally
+```
+
+### How to Test
+**Note**: This project currently does not have a formal test suite. Manual testing is performed by:
+1. Running `npm run build` to check for TypeScript/build errors
+2. Running `npm run dev` and manually testing:
+   - Navigation between pages
+   - Dark/light mode toggle
+   - Tag filtering functionality
+   - Post content rendering
+   - Responsive design at different screen sizes
+   - Mobile menu functionality
+
+If adding tests in the future, use testing frameworks compatible with React 19 and Vite.
+
+## Security Considerations
+
+### Dependencies
+- Always check for security vulnerabilities before adding new dependencies
+- Keep dependencies up to date, especially security-critical ones
+- Current dependencies are from trusted sources (React, Vite, Tailwind)
+
+### Content Security
+- User-generated content is minimal (only markdown posts controlled by repository owner)
+- No external API calls or database connections
+- No user authentication or personal data collection
+
+### Build Security
+- Buffer polyfill is required for gray-matter (markdown parsing library)
+- GitHub Actions deployment uses Node.js 20 with `npm ci` for reproducible builds
+- All code is static HTML/CSS/JS served from GitHub Pages
+
+### Code Quality
+- TypeScript strict mode is enabled to catch type errors
+- ESLint is configured to catch common issues
+- No use of `eval()` except in gray-matter library (library dependency, cannot be avoided)
+
+### Best Practices When Making Changes
+- Never commit secrets or API keys
+- Validate all external URLs before adding them to markdown content
+- Keep all external dependencies to a minimum
+- Review all code changes for potential XSS vulnerabilities (though risk is low for static site)
+
 ## Architecture & Design Patterns
 
 ### Routing Strategy
@@ -92,27 +168,34 @@ All fields are required:
 
 ## Development Workflow
 
-### Essential Commands
+### Development Commands
+All commands should be run from the repository root:
+
 ```bash
-npm run dev      # Start dev server (localhost:5173)
+npm install      # Install dependencies (run once or after package.json changes)
+npm run dev      # Start dev server (localhost:5173) - Hot reload enabled
 npm run build    # Production build (outputs to dist/)
-npm run preview  # Preview production build
-npm run lint     # Run ESLint
+npm run preview  # Preview production build locally
+npm run lint     # Run ESLint to check code quality
 ```
 
 ### Build Process
-The build command runs: `tsc -b && vite build`
-- TypeScript compilation first
-- Vite build with PostCSS for Tailwind
-- Output: `dist/` directory
+The `npm run build` command runs: `tsc -b && vite build`
+- TypeScript compilation validates types first
+- Vite build processes and bundles the application with PostCSS for Tailwind
+- Output: `dist/` directory ready for deployment
+- Build artifacts are automatically deployed to GitHub Pages on push to `master` branch
 
-### Testing Changes
-Before committing:
-1. Run `npm run build` to ensure no build errors
-2. Check responsive design at mobile, tablet, and desktop widths
-3. Test dark/light mode toggle
-4. Verify tag filtering works
-5. Test navigation on all pages
+### Making Changes - Workflow
+1. **Before starting**: Run `npm install` to ensure dependencies are up to date
+2. **During development**: Use `npm run dev` for hot reload
+3. **Before committing**: 
+   - Run `npm run lint` to check for code quality issues
+   - Run `npm run build` to ensure no build errors
+   - Manually test affected functionality
+4. **Testing responsive design**: Check at mobile (375px), tablet (768px), and desktop (1024px+) widths
+5. **Testing theme**: Verify both dark and light modes work correctly
+6. **Commit and push**: Changes trigger automatic deployment via GitHub Actions
 
 ## Common Tasks & Solutions
 
@@ -207,21 +290,56 @@ Modern browsers with ES6+ support. No IE11 support needed.
 - TypeScript errors: Run `tsc -b` separately to isolate issues
 - Vite errors: Check `vite.config.ts` configuration
 - Missing dependencies: Run `npm install`
+- Port conflicts: Vite dev server uses port 5173 by default, change in vite.config.ts if needed
 
 ### Content Not Showing
 - Verify filename in `availablePosts` array
 - Check frontmatter syntax (YAML format)
 - Ensure markdown file is in `public/posts/content/`
+- Verify all required frontmatter fields are present (title, date, slug, tags, description)
 
 ### Routing Issues
 - Remember: HashRouter uses `#` in URLs
 - Post slugs must match frontmatter, not filenames
 - Check that routes in `App.tsx` match navigation links
+- For GitHub Pages: ensure `base` in vite.config.ts is correct for your repository
 
 ### Styling Issues
-- Run Tailwind rebuild if styles not applying
+- Run Tailwind rebuild if styles not applying (`npm run build`)
 - Check dark mode classes have `dark:` prefix
 - Verify custom colors are defined in `tailwind.config.js`
+- Clear browser cache if styles appear stale
+
+### Linting Issues
+- Known acceptable warnings:
+  - `react-refresh/only-export-components` in ThemeContext.tsx (exports both context and hook)
+  - `@ts-ignore` comments for Buffer polyfill compatibility
+- For new linting errors, fix them before committing
+- Run `npm run lint` frequently during development
+
+## Common Pitfalls and How to Avoid Them
+
+### Adding New Blog Posts
+**Pitfall**: Creating a markdown file but forgetting to add it to `availablePosts` array
+**Solution**: Always follow the two-step process:
+1. Create markdown file in `public/posts/content/`
+2. Add filename to `availablePosts` in `src/utils/posts.ts`
+
+### Routing on GitHub Pages
+**Pitfall**: Using `BrowserRouter` which breaks on GitHub Pages
+**Solution**: Always use `HashRouter` for GitHub Pages compatibility
+
+### Missing Frontmatter
+**Pitfall**: Omitting required frontmatter fields causes posts not to display
+**Solution**: Use the frontmatter template and validate all five required fields
+
+### Import Paths
+**Pitfall**: Using incorrect import paths that work locally but fail in production
+**Solution**: Use relative imports consistently, avoid mixing absolute/relative paths
+
+### Dark Mode Support
+**Pitfall**: Adding new components without dark mode styles
+**Solution**: Always add `dark:` variants for colors and backgrounds in new components
 
 ## Project Structure Reference
 
@@ -255,3 +373,37 @@ This is a personal blog project, so:
 - Mobile experience should be excellent
 
 When suggesting changes, prefer small, surgical modifications over large refactors unless explicitly requested.
+
+## Getting Help and Contributing
+
+### Before Asking for Help
+1. Check this instructions file for relevant guidance
+2. Review the README.md for setup instructions
+3. Check the Troubleshooting section above
+4. Verify your Node.js version is 18 or higher
+5. Try deleting `node_modules` and running `npm install` again
+
+### When Reporting Issues
+Include the following information:
+- Node.js version (`node --version`)
+- npm version (`npm --version`)
+- Operating system
+- Exact error messages or unexpected behavior
+- Steps to reproduce
+- What you expected to happen
+
+### Contributing Guidelines
+1. This is a personal blog, so contributions are not actively sought
+2. If you do want to suggest improvements:
+   - Open an issue first to discuss the change
+   - Keep changes minimal and focused
+   - Follow the existing code style and patterns
+   - Test thoroughly before submitting
+3. For typos or obvious bugs, feel free to open a PR directly
+
+### Resources
+- React 19 Documentation: https://react.dev/
+- Vite Documentation: https://vite.dev/
+- Tailwind CSS Documentation: https://tailwindcss.com/
+- TypeScript Documentation: https://www.typescriptlang.org/
+- GitHub Pages Documentation: https://docs.github.com/pages
