@@ -4,7 +4,7 @@ date: "2025-10-05"
 slug: "adding-featured-images-blog-enhancement"
 tags: ["development", "blogging", "react", "enhancement"]
 description: "How GitHub Copilot enhanced the blog with featured images support while maintaining backward compatibility and responsive design."
-image: "/images/crimsonrgames-20.png"
+image: "/images/copilot-1.png"
 ---
 
 # Adding Featured Images: A Blog Enhancement Journey
