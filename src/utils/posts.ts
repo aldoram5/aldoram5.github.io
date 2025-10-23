@@ -14,6 +14,7 @@ const availablePosts = [
   '2025-09-10-building-modern-blog-react-vite.md',
   '2025-09-18-a-bit-of-history.md',
   '2025-10-05-adding-featured-images-blog-enhancement.md',
+  '2025-10-22-working-with-github-copilot.md'
 ];
 
 async function loadMarkdownPosts(): Promise<BlogPost[]> {
