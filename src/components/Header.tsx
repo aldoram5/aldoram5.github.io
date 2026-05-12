@@ -13,6 +13,7 @@ const Header: React.FC = () => {
     { name: 'Resume', href: '/resume' },
     { name: 'About', href: '/about' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Main Site', href: 'https://crimsonrgames.com' },
   ];
 
   const isActive = (href: string) => {
