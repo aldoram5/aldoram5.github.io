@@ -21,7 +21,7 @@ The blog features a warm color palette inspired by Crimson R Games:
 - **Secondary**: Warm orange (#fb923c)  
 - **Accent**: Warm yellow (#fcd34d)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
