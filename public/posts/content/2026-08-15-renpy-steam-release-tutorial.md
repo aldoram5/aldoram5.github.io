@@ -4,6 +4,7 @@ date: "2026-08-13"
 slug: "renpy-steam-release-tutorial"
 tags: ["development", "games", "visual novel", "steam", "renpy", "tutorial"]
 description: "A full walkthrough of releasing a Ren'Py visual novel on Steam, from Steamworks Partner registration (with a section for Mexican developers) through SteamPipe uploads and testing."
+image: "/images/steam.png"
 ---
 
 # Releasing a Ren'Py Visual Novel on Steam: The End-to-End Tutorial I Wish Existed
