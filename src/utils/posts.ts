@@ -16,7 +16,8 @@ const availablePosts = [
   '2025-10-05-adding-featured-images-blog-enhancement.md',
   '2025-10-22-working-with-github-copilot.md',
   '2026-01-01-a-reflection-on-2025.md',
-  '2026-01-03-new-release-colors-of-love-recolored.md'
+  '2026-01-03-new-release-colors-of-love-recolored.md',
+  '2026-08-15-renpy-steam-release-tutorial.md'
 ];
 
 async function loadMarkdownPosts(): Promise<BlogPost[]> {
