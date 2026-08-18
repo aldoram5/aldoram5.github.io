@@ -12,7 +12,9 @@ const About: React.FC = () => {
             About Me
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Passionate developer, creative problem-solver, and lifelong learner
+            Passionate developer, creative problem-solver, and lifelong learner. 
+            Currently a Lead Software Developement Engineer from 9 to 5 and solo creator behind Crimson R Games, a Mexico-based
+            indie game studio at night.
           </p>
         </div>
 
@@ -41,8 +43,9 @@ const About: React.FC = () => {
                   >
                     Crimson R Games
                   </a>, which is my own website, where I publish the games I develop and interactive web experiences I create.
-                  This is something I've been doing since 2012, and I will continue on until my last day alive.
-                  All of that is fueled by my love and passion for gaming and technology and I don't make any money from it.
+                  Now it has become my Mexico-based indie game studio. 
+                  Since 2012, it has been where I publish games, characters, devlogs,
+                  tutorials, and everything I've developed or worked on.
                   I love the challenge of turning creative ideas into experiences that I hope people will enjoy.
                 </p>
                 
@@ -168,19 +171,19 @@ const About: React.FC = () => {
               <ul className="space-y-3 text-sm">
                 <li className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400">Location</span>
-                  <span className="text-gray-900 dark:text-gray-100">Mexico City</span>
+                  <span className="text-gray-900 dark:text-gray-100">Mexico City, Mexico</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-600 dark:text-gray-400">Experience</span>
                   <span className="text-gray-900 dark:text-gray-100">13+ years</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Speciality</span>
-                  <span className="text-gray-900 dark:text-gray-100">Frontend & Games</span>
+                  <span className="text-gray-600 dark:text-gray-400">Studio</span>
+                  <span className="text-gray-900 dark:text-gray-100">Crimson R Games</span>
                 </li>
                 <li className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">Coffee</span>
-                  <span className="text-gray-900 dark:text-gray-100">I don't drink coffee</span>
+                  <span className="text-gray-600 dark:text-gray-400">Focus</span>
+                  <span className="text-gray-900 dark:text-gray-100">Full-stack & indie games</span>
                 </li>
               </ul>
             </div>
@@ -225,8 +228,7 @@ const About: React.FC = () => {
                 Fun Fact
               </h3>
               <p className="text-sm text-gray-700 dark:text-gray-300">
-                I used to hate catgirls, but now I'm a very big fan of them.
-                Expect to see more of them in my projects in the future.
+                I am a very big fan of catgirls. I believe in Catgirl supremacy.
               </p>
             </div>
           </div>
