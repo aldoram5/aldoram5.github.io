@@ -66,8 +66,8 @@ const Projects: React.FC = () => {
       longDescription: 'A mod that expands act 3 of the game so the player can interact with Monika through a framework that allows for dynamic dialogue and events and keeps track of the interactions in a more robust way. I contributed to many systems like the calendar and affection, did some minor graphic additions. No longer contributing to the project but was a stepping stone for me, because of the experience working with a team around the world and following open source practices.',
       technologies: ['Python', 'Ren\'Py'],
       liveUrl: 'http://www.monikaafterstory.com',
-      githubUrl: 'https://github.com/yourusername/portfolio',
-      completedDate: '2024-03-15',
+      githubUrl: 'https://github.com/Monika-After-Story/MonikaModDev',
+      completedDate: '2019-04-21',
       featured: false
     }
   ];
