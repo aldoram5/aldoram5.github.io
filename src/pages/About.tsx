@@ -50,7 +50,7 @@ const About: React.FC = () => {
                 </p>
                 
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  As much as I love coding, I'm equally passionate about art and music. I firmly believe that video games are a form of art, and I strive to incorporate artistic elements into my work.
+                  As much as I love coding, I'm equally passionate about art and music. I firmly believe that video games are the best form of art, and I strive to incorporate artistic elements into my work.
                 </p>
               </div>
             </section>
@@ -78,7 +78,7 @@ const About: React.FC = () => {
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     I always liked drawing since I was a kid, and that passion has carried over into my work as a developer.
-                    Video games are a form of art, and as such, being able to convey emotions and tell stories through visuals is something I strive for.
+                    Video games are the best form of art, and as such, being able to convey emotions and tell stories through visuals is something I strive for.
                     As it's hard to fully focus on art since it's not my main profession, I try to improve my skills bit by bit every day.
                   </p>
                 </div>

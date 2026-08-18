@@ -12,11 +12,44 @@ interface Project {
   githubUrl?: string;
   imageUrl?: string;
   completedDate: string;
+  timelineLabel?: string;
   featured: boolean;
 }
 
 const Projects: React.FC = () => {
   const projects: Project[] = [
+    {
+      id: 'colors-of-love-re-colored',
+      title: 'The Colors of Love - Re-Colored',
+      description: 'Free romantic visual novel released on Steam',
+      longDescription: 'A remake and re-imagining of my 2021 visual novel, rebuilt with updated presentation, new scenes, multiple endings, English and Spanish support, Steam achievements, and hidden secrets. Released as a free game on Steam while keeping the emotional core of the original.',
+      technologies: ['Ren\'Py', 'Python', 'Steamworks'],
+      liveUrl: 'https://crimsonrgames.com/games/colors-of-love-re-colored',
+      completedDate: '2026-06-26',
+      timelineLabel: 'Released June 2026',
+      featured: true
+    },
+    {
+      id: 'razor-x',
+      title: 'Razor-X',
+      description: 'Unity 6 PC remake of my mobile 2.5D shooter',
+      longDescription: 'A WIP remake of the 2.5D shooter I originally released for Android and iOS. The new version is being rebuilt in Unity 6 for PC, with a Steam-focused release target currently planned for Q1 2027.',
+      technologies: ['Unity', 'C#', 'Steam'],
+      completedDate: '2027-03-31',
+      timelineLabel: 'WIP - target Q1 2027',
+      featured: true
+    },
+    {
+      id: 'crb-5-digital-flight',
+      title: 'CRB-5 Digital Flight',
+      description: 'Completed browser arcade shooter built with Godot',
+      longDescription: 'An older completed pixel-art 2D shooter starring CRB-5, also known as Roxanne, the Crimson R Games mascot. It began as a small web easter egg and became a playable browser game built with Godot 3 and GDScript.',
+      technologies: ['Godot', 'GDScript', 'HTML5'],
+      liveUrl: 'https://crimsonrgames.com/games/crb-5-digital-fly',
+      completedDate: '2021-03-27',
+      timelineLabel: 'Completed March 2021',
+      featured: false
+    },
     {
       id: 'personal-blog',
       title: 'Personal Blog Platform',
@@ -119,7 +152,7 @@ const Projects: React.FC = () => {
       {/* Date */}
       <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
         <Calendar className="h-4 w-4 mr-2" />
-        <span>Completed {formatDate(project.completedDate)}</span>
+        <span>{project.timelineLabel || `Completed ${formatDate(project.completedDate)}`}</span>
       </div>
       
       {/* Links */}
