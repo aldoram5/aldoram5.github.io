@@ -1,6 +1,20 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { Github, Globe, Mail, Heart } from 'lucide-react';
+import { pageMeta, personJsonLd } from '../utils/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'About Aldo Pedro Rangel Montiel | Crimson R Games',
+    description: 'Meet Aldo Pedro Rangel Montiel, a software developer and the solo creator behind Crimson R Games, a Mexico-based independent game studio.',
+    path: '/about',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      mainEntity: personJsonLd(),
+    },
+  });
+}
 
 const About: React.FC = () => {
   return (
@@ -39,7 +53,7 @@ const About: React.FC = () => {
                     href="https://crimsonrgames.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-crimson-600 dark:text-crimson-400 hover:text-crimson-700 dark:hover:text-crimson-300 transition-colors"
+                    className="text-crimson-700 underline underline-offset-2 transition-colors hover:text-crimson-800 dark:text-crimson-400 dark:hover:text-crimson-300"
                   >
                     Crimson R Games
                   </a>, which is my own website, where I publish the games I develop and interactive web experiences I create.
@@ -73,7 +87,7 @@ const About: React.FC = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-warm-orange-400">
+                  <h3 className="text-lg font-semibold text-warm-orange-700 dark:text-warm-orange-400">
                     Illustration & Design
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -84,7 +98,7 @@ const About: React.FC = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-warm-yellow-400">
+                  <h3 className="text-lg font-semibold text-warm-yellow-700 dark:text-warm-yellow-400">
                     Music production
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300">

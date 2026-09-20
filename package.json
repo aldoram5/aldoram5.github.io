@@ -4,26 +4,30 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "dev": "react-router dev",
+    "typecheck": "react-router typegen && tsc --noEmit",
+    "build": "npm run typecheck && react-router build && npm run verify:build",
+    "verify:build": "node scripts/verify-build.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview --outDir dist/client"
   },
   "dependencies": {
-    "buffer": "^6.0.3",
+    "@react-router/node": "^7.18.2",
     "gray-matter": "^4.0.3",
+    "isbot": "^5",
     "lucide-react": "^0.539.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.18.2"
+    "react-router": "^7.18.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@react-router/dev": "^7.18.2",
     "@tailwindcss/cli": "^4.1.12",
+    "@types/node": "^26.2.0",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
-    "@vitejs/plugin-react": "^5.2.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^10.8.0",
     "eslint-plugin-react-hooks": "^7.1.1",

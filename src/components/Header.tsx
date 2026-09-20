@@ -1,115 +1,82 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router';
+import { Menu, Moon, Sun, X } from 'lucide-react';
+import { useTheme } from '../hooks/useTheme';
 
-const Header: React.FC = () => {
+const navigation = [
+  { name: 'Latest Posts', href: '/' },
+  { name: 'Resume', href: '/resume/' },
+  { name: 'About', href: '/about/' },
+  { name: 'Projects', href: '/projects/' },
+] as const;
+
+function navClassName(isActive: boolean, mobile = false): string {
+  const size = mobile ? 'block px-3 py-2 text-base' : 'px-3 py-2 text-sm';
+  const color = isActive
+    ? 'bg-crimson-50 text-crimson-700 dark:bg-crimson-900/20 dark:text-crimson-400'
+    : 'text-gray-700 hover:bg-gray-50 hover:text-crimson-600 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-crimson-400';
+  return `${size} rounded-md font-medium transition-colors ${color}`;
+}
+
+export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const location = useLocation();
-
-  const navigation = [
-    { name: 'Latest Posts', href: '/' },
-    { name: 'Resume', href: '/resume' },
-    { name: 'About', href: '/about' },
-    { name: 'Projects', href: '/projects' },
-    { name: 'Main Site', href: 'https://crimsonrgames.com' },
-  ];
-
-  const isActive = (href: string) => {
-    if (href === '/') {
-      return location.pathname === '/' || location.pathname === '';
-    }
-    return location.pathname === href;
-  };
 
   return (
-    <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link 
-              to="/" 
-              className="text-xl font-bold text-crimson-600 hover:text-crimson-700 transition-colors"
-            >
-              Aldo's Blog
-            </Link>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <Link to="/" className="text-xl font-bold text-crimson-600 transition-colors hover:text-crimson-700">
+            Aldo's Blog
+          </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden space-x-8 md:flex" aria-label="Primary navigation">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive(item.href)
-                    ? 'text-crimson-600 bg-crimson-50 dark:bg-crimson-900/20 dark:text-crimson-400'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-crimson-600 dark:hover:text-crimson-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-                }`}
-              >
+              <NavLink key={item.name} to={item.href} end={item.href === '/'} className={({ isActive }) => navClassName(isActive)}>
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
+            <a href="https://crimsonrgames.com" className={navClassName(false)}>Main Site</a>
           </nav>
 
-          {/* Theme Toggle and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
-            {/* Theme Toggle */}
             <button
+              type="button"
               onClick={toggleTheme}
-              className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-crimson-600 dark:hover:text-crimson-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Toggle theme"
+              className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-50 hover:text-crimson-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-crimson-400"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
             >
-              {theme === 'light' ? (
-                <Moon className="h-5 w-5" />
-              ) : (
-                <Sun className="h-5 w-5" />
-              )}
+              {theme === 'light'
+                ? <Moon className="h-5 w-5" aria-hidden="true" />
+                : <Sun className="h-5 w-5" aria-hidden="true" />}
             </button>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:text-crimson-600 dark:hover:text-crimson-400 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? (
-                  <X className="h-5 w-5" />
-                ) : (
-                  <Menu className="h-5 w-5" />
-                )}
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              className="rounded-md p-2 text-gray-600 transition-colors hover:bg-gray-50 hover:text-crimson-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-crimson-400 md:hidden"
+              aria-label={`${isMenuOpen ? 'Close' : 'Open'} navigation menu`}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              {isMenuOpen
+                ? <X className="h-5 w-5" aria-hidden="true" />
+                : <Menu className="h-5 w-5" aria-hidden="true" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200 dark:border-gray-700">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'text-crimson-600 bg-crimson-50 dark:bg-crimson-900/20 dark:text-crimson-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-crimson-600 dark:hover:text-crimson-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+        <nav id="mobile-navigation" className={isMenuOpen ? 'border-t border-gray-200 pb-3 pt-2 dark:border-gray-700 md:hidden' : 'hidden'} aria-label="Mobile navigation">
+          <div className="space-y-1 px-2">
+            {navigation.map((item) => (
+              <NavLink key={item.name} to={item.href} end={item.href === '/'} onClick={() => setIsMenuOpen(false)} className={({ isActive }) => navClassName(isActive, true)}>
+                {item.name}
+              </NavLink>
+            ))}
+            <a href="https://crimsonrgames.com" className={navClassName(false, true)}>Main Site</a>
           </div>
-        )}
+        </nav>
       </div>
     </header>
   );
-};
-
-export default Header;
+}
