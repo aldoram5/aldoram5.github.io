@@ -1,6 +1,20 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { Mail, MapPin, Globe } from 'lucide-react';
+import { pageMeta, personJsonLd } from '../utils/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Resume | Aldo Pedro Rangel Montiel',
+    description: 'Professional experience and technical background for Aldo Pedro Rangel Montiel, Lead Software Development Engineer and independent game developer in Mexico.',
+    path: '/resume',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      mainEntity: personJsonLd(),
+    },
+  });
+}
 
 const Resume: React.FC = () => {
   return (
@@ -19,8 +33,10 @@ const Resume: React.FC = () => {
             {/* Contact Info */}
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>aldo@crimsonrgames.com</span>
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                <a href="mailto:aldo@crimsonrgames.com" className="underline underline-offset-2 hover:text-crimson-700 dark:hover:text-crimson-300">
+                  aldo@crimsonrgames.com
+                </a>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
@@ -73,12 +89,12 @@ const Resume: React.FC = () => {
               <p className="text-crimson-600 dark:text-crimson-400 font-medium mb-3">
                 Thomson Reuters
               </p>
-              <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Successfully led a team of vendor developers 100% remotely through implementing the modularization of the frontend and adopting a new internal UI framework</li>
-                <li>• Currently leading one of the core product teams in the development of OneSource - Indirect Tax </li>
-                <li>• Mentoring and guiding junior developers in best practices and coding standards</li>
-                <li>• Led the successful migration of legacy codebases to modern frameworks and modern code standards</li>
-                <li>• Pioneering the adoption of AI technologies in product development</li>
+              <ul className="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                <li>Successfully led a team of vendor developers 100% remotely through implementing the modularization of the frontend and adopting a new internal UI framework</li>
+                <li>Currently leading one of the core product teams in the development of OneSource - Indirect Tax </li>
+                <li>Mentoring and guiding junior developers in best practices and coding standards</li>
+                <li>Led the successful migration of legacy codebases to modern frameworks and modern code standards</li>
+                <li>Pioneering the adoption of AI technologies in product development</li>
               </ul>
             </div>
 
@@ -95,10 +111,10 @@ const Resume: React.FC = () => {
               <p className="text-crimson-600 dark:text-crimson-400 font-medium mb-3">
                 Thomson Reuters
               </p>
-              <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Worked with a team all around the world to deliver high-quality software solutions</li>
-                <li>• Worked on the Angular migration of one of the core Product's of the Company: One Source - Indirect Tax</li>
-                <li>• Was a key contributor for solving customer related issues and improving product performance</li>
+              <ul className="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                <li>Worked with a team all around the world to deliver high-quality software solutions</li>
+                <li>Worked on the Angular migration of one of the core Product's of the Company: One Source - Indirect Tax</li>
+                <li>Was a key contributor for solving customer related issues and improving product performance</li>
               </ul>
             </div>
             {/* Job 3 */}
@@ -114,11 +130,11 @@ const Resume: React.FC = () => {
               <p className="text-crimson-600 dark:text-crimson-400 font-medium mb-3">
                 GBMobile
               </p>
-              <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Started as a trainee and stayed with the company until 2022</li>
-                <li>• Worked on various projects, including mobile applications and web platforms(Frontend and Backend)</li>
-                <li>• Worked on projects related to one of the biggest Television networks in Mexico (TV Azteca)</li>
-                <li>• Gained extensive experience in full-stack development and agile methodologies</li>
+              <ul className="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                <li>Started as a trainee and stayed with the company until 2022</li>
+                <li>Worked on various projects, including mobile applications and web platforms(Frontend and Backend)</li>
+                <li>Worked on projects related to one of the biggest Television networks in Mexico (TV Azteca)</li>
+                <li>Gained extensive experience in full-stack development and agile methodologies</li>
               </ul>
             </div>
             {/* Job 4 */}
@@ -134,11 +150,11 @@ const Resume: React.FC = () => {
               <p className="text-crimson-600 dark:text-crimson-400 font-medium mb-3">
                 Various Clients
               </p>
-              <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Assisted with front-end development using React and TypeScript for https://www.acceder.io/ 100% remotely</li>
-                <li>• Assisted with mobile and web development for a Chilean-based mobile company 100% remotely</li>
-                <li>• Provided consultancy services to small businesses in Mexico</li>
-                <li>• Mentored junior developers and taught best practices in software development</li>
+              <ul className="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300">
+                <li>Assisted with front-end development using React and TypeScript for https://www.acceder.io/ 100% remotely</li>
+                <li>Assisted with mobile and web development for a Chilean-based mobile company 100% remotely</li>
+                <li>Provided consultancy services to small businesses in Mexico</li>
+                <li>Mentored junior developers and taught best practices in software development</li>
               </ul>
               <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">
                 DISCLAIMER: Freelancing jobs were part-time(working on weekends) and not full-time positions, they never overlapped with my full-time jobs, I have a strong commitment to my employers and work ethically.

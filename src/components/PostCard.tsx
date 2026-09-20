@@ -1,22 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Calendar, Tag, ArrowRight } from 'lucide-react';
-import type { BlogPost } from '../types';
-import { formatDate, getExcerpt } from '../utils/posts';
+import type { PostSummary } from '../types';
+import { formatDate } from '../utils/posts';
 
 interface PostCardProps {
-  post: BlogPost;
+  post: PostSummary;
   showExcerpt?: boolean;
 }
 
 const PostCard: React.FC<PostCardProps> = ({ post, showExcerpt = true }) => {
-  const excerpt = post.excerpt || getExcerpt(post.content);
+  const excerpt = post.excerpt || post.description;
 
   return (
     <article className="card overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Featured Image */}
       {post.image && (
-        <Link to={`/posts/${post.slug}`} className="block">
+        <Link to={`/posts/${post.slug}/`} className="block">
           <div className="relative w-full aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800">
             <img
               src={post.image}
@@ -33,7 +33,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, showExcerpt = true }) => {
         {/* Post Header */}
         <div className="mb-4">
           <Link 
-            to={`/posts/${post.slug}`}
+            to={`/posts/${post.slug}/`}
             className="block group"
           >
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-crimson-600 dark:group-hover:text-crimson-400 transition-colors duration-200 mb-2">
@@ -91,7 +91,7 @@ const PostCard: React.FC<PostCardProps> = ({ post, showExcerpt = true }) => {
         {/* Read More Link */}
         <div className="flex justify-between items-center">
           <Link
-            to={`/posts/${post.slug}`}
+            to={`/posts/${post.slug}/`}
             className="inline-flex items-center space-x-2 text-crimson-600 dark:text-crimson-400 hover:text-crimson-700 dark:hover:text-crimson-300 font-medium transition-colors duration-200 group"
           >
             <span>Read more</span>

@@ -13,6 +13,10 @@
     @apply transition-colors duration-300;
   }
 
+  :focus-visible {
+    @apply outline-none ring-2 ring-crimson-600 ring-offset-2 ring-offset-white dark:ring-crimson-400 dark:ring-offset-gray-900;
+  }
+
   /* Light mode styles */
   .light {
     @apply bg-gray-50 text-gray-900;
@@ -30,7 +34,7 @@
   }
   
   .btn-secondary {
-    @apply bg-warm-orange-400 hover:bg-warm-orange-500 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply bg-warm-orange-700 hover:bg-warm-orange-800 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
   }
   
   .card {

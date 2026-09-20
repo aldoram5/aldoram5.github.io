@@ -9,21 +9,27 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, sidebar }) => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
+      <a
+        href="#main-content"
+        className="sr-only z-[60] rounded-md bg-white px-4 py-2 text-crimson-700 shadow focus:not-sr-only focus:fixed focus:left-4 focus:top-4 dark:bg-gray-800 dark:text-crimson-300"
+      >
+        Skip to main content
+      </a>
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main id="main-content" tabIndex={-1} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className={`grid grid-cols-1 gap-8 ${sidebar ? 'lg:grid-cols-4' : ''}`}>
-          {/* Main Content */}
-          <div className={sidebar ? 'lg:col-span-3' : ''}>
-            {children}
-          </div>
-          
           {/* Sidebar */}
           {sidebar && (
-            <div className="lg:col-span-1">
+            <div className="lg:col-start-4 lg:row-start-1">
               {sidebar}
             </div>
           )}
+
+          {/* Main Content */}
+          <div className={sidebar ? 'lg:col-span-3 lg:col-start-1 lg:row-start-1' : ''}>
+            {children}
+          </div>
         </div>
       </main>
       

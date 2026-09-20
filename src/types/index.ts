@@ -9,6 +9,8 @@ export interface BlogPost {
   image?: string;
 }
 
+export type PostSummary = Omit<BlogPost, 'content'>;
+
 export interface PostMetadata {
   title: string;
   date: string;
@@ -16,9 +18,4 @@ export interface PostMetadata {
   tags: string[];
   description: string;
   image?: string;
-}
-
-export interface ThemeContextType {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
 }

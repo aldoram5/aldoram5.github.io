@@ -1,6 +1,21 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
+import { pageMeta } from '../utils/seo';
+
+export function meta() {
+  return pageMeta({
+    title: 'Projects | Aldo Pedro Rangel Montiel',
+    description: 'Software, web, and indie game projects by Aldo Pedro Rangel Montiel, including work published through Crimson R Games.',
+    path: '/projects',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Projects by Aldo Pedro Rangel Montiel',
+      url: 'https://aldoram5.github.io/projects/',
+    },
+  });
+}
 
 interface Project {
   id: string;
@@ -109,14 +124,15 @@ const Projects: React.FC = () => {
   const otherProjects = projects.filter(project => !project.featured);
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    return new Date(`${dateString}T00:00:00Z`).toLocaleDateString('en-US', {
       year: 'numeric',
-      month: 'long'
+      month: 'long',
+      timeZone: 'UTC'
     });
   };
 
   const ProjectCard: React.FC<{ project: Project; featured?: boolean }> = ({ project, featured = false }) => (
-    <div className={`card p-6 hover:shadow-lg transition-shadow duration-300 ${featured ? 'ring-2 ring-crimson-200 dark:ring-crimson-800' : ''}`}>
+    <article className={`card p-6 hover:shadow-lg transition-shadow duration-300 ${featured ? 'ring-2 ring-crimson-200 dark:ring-crimson-800' : ''}`}>
       {featured && (
         <div className="inline-block px-3 py-1 bg-crimson-600 text-white text-xs font-medium rounded-full mb-4">
           Featured
@@ -137,22 +153,22 @@ const Projects: React.FC = () => {
       
       {/* Technologies */}
       <div className="mb-4">
-        <div className="flex flex-wrap gap-2">
+        <ul className="flex flex-wrap gap-2" aria-label={`Technologies used for ${project.title}`}>
           {project.technologies.map((tech) => (
-            <span 
+            <li
               key={tech}
               className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs"
             >
               {tech}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       
       {/* Date */}
       <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
-        <Calendar className="h-4 w-4 mr-2" />
-        <span>{project.timelineLabel || `Completed ${formatDate(project.completedDate)}`}</span>
+        <Calendar className="h-4 w-4 mr-2" aria-hidden="true" />
+        <time dateTime={project.completedDate}>{project.timelineLabel || `Completed ${formatDate(project.completedDate)}`}</time>
       </div>
       
       {/* Links */}
@@ -162,9 +178,10 @@ const Projects: React.FC = () => {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View ${project.title}`}
             className="inline-flex items-center space-x-2 text-crimson-600 dark:text-crimson-400 hover:text-crimson-700 dark:hover:text-crimson-300 transition-colors"
           >
-            <ExternalLink className="h-4 w-4" />
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
             <span>Check it out!</span>
           </a>
         )}
@@ -174,14 +191,15 @@ const Projects: React.FC = () => {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View source code for ${project.title}`}
             className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
           >
-            <Github className="h-4 w-4" />
+            <Github className="h-4 w-4" aria-hidden="true" />
             <span>Source Code</span>
           </a>
         )}
       </div>
-    </div>
+    </article>
   );
 
   return (
