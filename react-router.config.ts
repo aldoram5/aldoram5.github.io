@@ -16,7 +16,7 @@ export default {
     return [
       ...staticPaths,
       '/404',
-      ...slugs.map((slug) => `/posts/${slug}`),
+      ...slugs.map((slug) => `/posts/${slug}/`),
     ];
   },
   async buildEnd() {

@@ -7,7 +7,7 @@ This is a statically generated React 19 blog deployed to GitHub Pages. React Rou
 Core stack:
 
 - React 19 and TypeScript
-- React Router 7 framework mode
+- React Router 8 framework mode
 - Vite 8
 - Tailwind CSS 3
 - gray-matter and react-markdown

@@ -27,6 +27,7 @@ const posts = await Promise.all(postFiles.map(async (filename) => {
 
 await Promise.all([
   exists('index.html'),
+  exists('_.data'),
   exists('about/index.html'),
   exists('projects/index.html'),
   exists('resume/index.html'),
@@ -52,6 +53,8 @@ assert.doesNotThrow(() => JSON.parse(aboutJson));
 for (const post of posts) {
   assert.equal(typeof post.slug, 'string', `${post.filename} is missing a slug`);
   const canonical = `${siteUrl}/posts/${post.slug}/`;
+  // Router v8 preserves trailing slashes when requesting prerendered loader data.
+  await exists(`posts/${post.slug}/_.data`);
   const html = await output(`posts/${post.slug}/index.html`);
 
   assert.ok(html.includes('<article'), `${post.slug} is missing article HTML`);

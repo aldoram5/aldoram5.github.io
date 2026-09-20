@@ -14,13 +14,15 @@ A statically generated personal blog built with React 19, React Router, Vite, Ty
 
 ## Requirements
 
-- Node.js 20 or newer
+- Node.js 24 LTS (the tested version is pinned in `.nvmrc`)
 - npm
 
 ## Development
 
 ```bash
-npm install
+nvm install
+nvm use
+npm ci
 npm run dev
 ```
 
