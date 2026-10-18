@@ -55,20 +55,6 @@ export default {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
         'serif': ['Georgia', 'serif'],
       },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: 'none',
-            color: 'inherit',
-            a: {
-              color: '#dc2626',
-              '&:hover': {
-                color: '#b91c1c',
-              },
-            },
-          },
-        },
-      },
     },
   },
   plugins: [],

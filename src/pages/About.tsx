@@ -130,7 +130,7 @@ const About: React.FC = () => {
               <div className="space-y-4">
 
                 <div className="flex items-start space-x-3">
-                  <Heart className="h-5 w-5 text-warm-yellow-400 mt-1 flex-shrink-0" />
+                  <Heart className="h-5 w-5 text-warm-yellow-400 mt-1 shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
                       Video Games are Art
@@ -144,7 +144,7 @@ const About: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start space-x-3">
-                  <Heart className="h-5 w-5 text-warm-orange-400 mt-1 flex-shrink-0" />
+                  <Heart className="h-5 w-5 text-warm-orange-400 mt-1 shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
                       To Live is to learn
@@ -158,7 +158,7 @@ const About: React.FC = () => {
                 </div>
                 
                 <div className="flex items-start space-x-3">
-                  <Heart className="h-5 w-5 text-crimson-600 mt-1 flex-shrink-0" />
+                  <Heart className="h-5 w-5 text-crimson-600 mt-1 shrink-0" />
                   <div>
                     <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
                       Technology should improve lives

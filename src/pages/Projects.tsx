@@ -157,7 +157,7 @@ const Projects: React.FC = () => {
           {project.technologies.map((tech) => (
             <li
               key={tech}
-              className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs"
+              className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-sm text-xs"
             >
               {tech}
             </li>

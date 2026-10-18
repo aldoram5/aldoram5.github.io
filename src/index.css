@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* The explicit CSS export also resolves during React Router prerendering. */
+@import "tailwindcss/index.css" source(".");
+@config "../tailwind.config.js";
 
 @layer base {
   html {
@@ -14,7 +14,13 @@
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-crimson-600 ring-offset-2 ring-offset-white dark:ring-crimson-400 dark:ring-offset-gray-900;
+    @apply outline-hidden ring-2 ring-crimson-600 ring-offset-2 ring-offset-white dark:ring-crimson-400 dark:ring-offset-gray-900;
+  }
+
+  /* Preserve the clickable cursor used before Tailwind 4. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 
   /* Light mode styles */
@@ -39,9 +45,5 @@
   
   .card {
     @apply bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700;
-  }
-  
-  .prose-custom {
-    @apply prose dark:prose-invert max-w-none prose-crimson;
   }
 }
