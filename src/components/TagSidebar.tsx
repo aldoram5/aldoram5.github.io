@@ -40,7 +40,7 @@ export default function TagSidebar({ tags, selectedTag }: TagSidebarProps) {
         <button
           type="button"
           onClick={() => setIsCollapsed((collapsed) => !collapsed)}
-          className="flex w-full items-center justify-between rounded-lg border border-gray-200 bg-white p-3 shadow-sm transition-colors hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+          className="flex w-full items-center justify-between rounded-lg border border-gray-200 bg-white p-3 shadow-xs transition-colors hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
           aria-expanded={!isCollapsed}
           aria-controls="mobile-tag-filters"
         >
@@ -55,14 +55,14 @@ export default function TagSidebar({ tags, selectedTag }: TagSidebarProps) {
         </button>
 
         {!isCollapsed && (
-          <div id="mobile-tag-filters" className="mt-3 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+          <div id="mobile-tag-filters" className="mt-3 rounded-lg border border-gray-200 bg-white p-4 shadow-xs dark:border-gray-700 dark:bg-gray-800">
             <TagLinks tags={tags} selectedTag={selectedTag} />
           </div>
         )}
       </div>
 
       <aside className="hidden md:block" aria-label="Blog tags">
-        <div className="sticky top-20 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+        <div className="sticky top-20 rounded-lg border border-gray-200 bg-white p-4 shadow-xs dark:border-gray-700 dark:bg-gray-800">
           <p className="mb-4 flex items-center space-x-2 font-semibold text-gray-900 dark:text-gray-100">
             <Tag className="h-4 w-4 text-crimson-600" aria-hidden="true" />
             <span>Filter by tags</span>

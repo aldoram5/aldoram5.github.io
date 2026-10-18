@@ -67,7 +67,7 @@ export default function PostDetail({ loaderData: post }: Route.ComponentProps) {
         </div>
 
         <header className="mb-8">
-          <h1 className="mb-4 text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 sm:text-4xl lg:text-5xl">
+          <h1 className="mb-4 text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 lg:text-5xl lg:leading-none">
             {post.title}
           </h1>
 

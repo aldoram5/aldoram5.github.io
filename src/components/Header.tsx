@@ -23,7 +23,7 @@ export default function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-xs dark:border-gray-700 dark:bg-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="text-xl font-bold text-crimson-600 transition-colors hover:text-crimson-700">

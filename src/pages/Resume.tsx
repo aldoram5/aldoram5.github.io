@@ -21,7 +21,7 @@ const Resume: React.FC = () => {
     <Layout>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-8 mb-8">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xs border border-gray-200 dark:border-gray-700 p-8 mb-8">
           <div className="text-center mb-6">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
               Aldo Pedro Rangel Montiel
